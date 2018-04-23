@@ -15,3 +15,6 @@ set hlsearch
 set history=10000
 
 inoremap jk <ESC>
+
+" AutoSaveVim
+let g:asv_delay = 500

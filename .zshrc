@@ -13,5 +13,6 @@ SAVEHIST=10000
 
 setopt correct
 setopt auto_cd
+setopt auto_pushd
 
 PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~%# "
