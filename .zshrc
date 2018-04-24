@@ -15,4 +15,28 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 
-PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~%# "
+alias lst='ls -ltr --color=auto'
+alias l='ls -ltr --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
+alias so='source'
+alias v='vim'
+alias vi='vim'
+alias vz='vim ~/.zshrc'
+alias c='cdr'
+
+PROMPT="%(?.%{${fg[cyan]}%}.%{${fg[red]}%})%n${reset_color}@${fg[yellow]}%m${reset_color}(%*%) %~
+%# "
+
+cdpath=(~)
+
+RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
