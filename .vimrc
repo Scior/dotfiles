@@ -1,6 +1,7 @@
 set number
 set title
 set cursorline
+set autoindent
 set smartindent
 set encoding=utf-8
 set showcmd
