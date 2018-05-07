@@ -15,10 +15,10 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 
-alias lst='ls -ltr --color=auto'
-alias l='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
+alias lst='ls -ltr'
+alias l='ls -ltr'
+alias la='ls -la'
+alias ll='ls -l'
 alias so='source'
 alias v='vim'
 alias vi='vim'
