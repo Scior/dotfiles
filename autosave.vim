@@ -28,7 +28,7 @@ endfunction
 call s:setDefaultValue("g:asv_enabled", 1)
 call s:setDefaultValue("g:asv_delay", 1000)
 call s:setDefaultValue("g:asv_backup", 1)
-" call s:setDefaultValue("g:asv_max_size", 2048) " KBytes
+" call s:setDefaultValue("g:asv_max_size", 2048) " KByte
 
 " delay for saving
 execute ':set updatetime='.g:asv_delay

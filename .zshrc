@@ -15,6 +15,7 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 
+# alias
 alias lst='ls -ltr'
 alias l='ls -ltr'
 alias la='ls -la'
@@ -25,10 +26,9 @@ alias vi='vim'
 alias vz='vim ~/.zshrc'
 alias c='cdr'
 
+# set prompt text
 PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
 %# "
-
-cdpath=(~)
 
 #RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
 #autoload -Uz vcs_info
@@ -41,4 +41,10 @@ cdpath=(~)
 #precmd () { vcs_info }
 #RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
+# export
+export EDITOR=vim
+
+cdpath=(~)
+
+# others
 eval "$(rbenv init -)"
