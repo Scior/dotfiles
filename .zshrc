@@ -29,7 +29,7 @@ alias vi='vim'
 alias vz='vim ~/.zshrc'
 
 alias c='cdr'
-alias g='grep'
+alias g='grep --color=auto'
 
 alias gs='git status'
 alias gc='git commit'
@@ -44,16 +44,16 @@ alias pne='perl -ne'
 PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
 %# "
 
-#RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
-#autoload -Uz vcs_info
-#setopt prompt_subst
-#zstyle ':vcs_info:git:*' check-for-changes true
-#zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-#zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-#zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-#zstyle ':vcs_info:*' actionformats '[%b|%a]'
-#precmd () { vcs_info }
-#RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+# git
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{230}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{169}+"
+zstyle ':vcs_info:*' formats "%F{195}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT='${vcs_info_msg_0_}'
 
 # export
 export EDITOR=vim
