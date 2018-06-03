@@ -55,8 +55,12 @@ alias ppe='perl -pe'
 alias pne='perl -ne'
 
 # prompt text
-PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
+if [ "$SSH_CONNECTION" ]; then
+    PROMPT='%n@%m $ '
+else
+    PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
 %# "
+fi
 
 # git status
 autoload -Uz vcs_info
