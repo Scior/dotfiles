@@ -60,10 +60,10 @@ precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 
 # clipboard
-if which pbcopy >/dev/null 2>&1 ; then
+if [ -x "`which pbcopy`" ]; then
     alias cbc='pbcopy' # Mac
     alias cbp='pbpaste'
-elif which xsel >/dev/null 2>&1 ; then
+elif [ -x "`which xsel`" ]; then
     alias cbc='xsel --clipboard --input ' # Linux
     alias cbp='xsel --clipboard --output'
 fi
