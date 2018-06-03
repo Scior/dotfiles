@@ -46,7 +46,12 @@ alias ga='git add'
 alias gs='git status'
 alias gc='git commit'
 alias gb='git branch'
-alias gp='git push'
+alias gp='git pull'
+alias gpo='git push origin'
+alias gl='git log'
+alias glo='git log --oneline'
+alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset"'
+alias gls='git log --oneline --stat --graph'
 
 ## perl
 alias p='perl'
