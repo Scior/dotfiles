@@ -20,11 +20,25 @@ alias lst='ls -ltr'
 alias l='ls -ltr'
 alias la='ls -la'
 alias ll='ls -l'
+
 alias so='source'
+alias soz='source ~/.zshrc'
+
 alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'
+
 alias c='cdr'
+alias g='grep'
+
+alias gs='git status'
+alias gc='git commit'
+alias gb='git branch'
+alias gp='git push'
+
+alias pe='perl -e'
+alias ppe='perl -pe'
+alias pne='perl -ne'
 
 # set prompt text
 PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
