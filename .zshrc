@@ -16,9 +16,19 @@ setopt auto_cd
 setopt auto_pushd
 
 # alias
-alias l='ls -ltr'
-alias la='ls -la'
-alias ll='ls -l'
+# if ls --color=auto >/dev/null 2>&1 ; then 
+#     alias l='ls -ltr --color=auto'
+#     alias la='ls -la --color=auto'
+#     alias ll='ls -l --color=auto'
+# elif ls -G >/dev/null 2>&1 ; then 
+#     alias l='ls -ltrG'
+#     alias la='ls -laG'
+#     alias ll='ls -lG'
+# else
+    alias l='ls -ltr'
+    alias la='ls -la'
+    alias ll='ls -l'
+# fi
 
 alias so='source'
 alias soz='source ~/.zshrc'
