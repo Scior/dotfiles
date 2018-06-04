@@ -16,19 +16,20 @@ setopt auto_cd
 setopt auto_pushd
 
 # alias
-# if ls --color=auto >/dev/null 2>&1 ; then 
-#     alias l='ls -ltr --color=auto'
-#     alias la='ls -la --color=auto'
-#     alias ll='ls -l --color=auto'
-# elif ls -G >/dev/null 2>&1 ; then 
-#     alias l='ls -ltrG'
-#     alias la='ls -laG'
-#     alias ll='ls -lG'
-# else
+if ls --color=auto >/dev/null 2>&1 ; then 
+    alias l='ls -ltr --color=auto'
+    alias la='ls -la --color=auto'
+    alias ll='ls -l --color=auto'
+elif ls -G >/dev/null 2>&1 ; then 
+    export LSCOLORS=xcfxcxdxbxegedabagacad
+    alias l='ls -ltrG'
+    alias la='ls -laG'
+    alias ll='ls -lG'
+else
     alias l='ls -ltr'
     alias la='ls -la'
     alias ll='ls -l'
-# fi
+fi
 
 alias so='source'
 alias soz='source ~/.zshrc'
@@ -80,10 +81,10 @@ precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 
 # clipboard
-if [ -x "`which pbcopy`" ]; then
+if which pbcopy >/dev/null 2>&1 ; then
     alias cbc='pbcopy' # Mac
     alias cbp='pbpaste'
-elif [ -x "`which xsel`" ]; then
+elif which xsel >/dev/null 2>&1 ; then
     alias cbc='xsel --clipboard --input ' # Linux
     alias cbp='xsel --clipboard --output'
 fi
@@ -94,4 +95,4 @@ export EDITOR=vim
 cdpath=(~)
 
 # others
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
