@@ -26,12 +26,13 @@ endfunction
 
 " params
 call s:setDefaultValue("g:asv_enabled", 1)
+call s:setDefaultValue("g:asv_root_check", 1)
 call s:setDefaultValue("g:asv_delay", 1000)
 call s:setDefaultValue("g:asv_backup", 1)
 " call s:setDefaultValue("g:asv_max_size", 2048) " KByte
 
 " disable when executed by root
-if $UID == 0
+if $UID == 0 && g:asv_root_check == 1
     let g:asv_enabled = 0
 endif
 
