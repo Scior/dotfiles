@@ -61,7 +61,8 @@ alias pne='perl -ne'
 
 # prompt text
 if [ "$SSH_CONNECTION" ]; then
-    PROMPT='%n@%m $ '
+    PROMPT="%(?.%F{085}.%F{212})%n%F{244}@%F{043}%m%F{250}(%*%) %F{117}%~%f
+%# "
 else
     PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
 %# "
