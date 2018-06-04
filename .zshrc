@@ -15,6 +15,10 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 
+# vim bind
+bindkey -v 
+bindkey "jk" vi-cmd-mode
+
 # alias
 if ls --color=auto >/dev/null 2>&1 ; then 
     alias l='ls -ltr --color=auto'
@@ -67,12 +71,24 @@ alias pne='perl -ne'
 
 # prompt text
 if [ "$SSH_CONNECTION" ]; then
-    PROMPT="%(?.%F{085}.%F{212})%n%F{244}@%F{043}%m%F{250}(%*%) %F{117}%~%f
+    PRE_PROMPT="%(?.%F{085}.%F{212})%n%F{244}@%F{043}%m%F{250}(%*%)"
+    SUF_PROMPT=" %F{117}%~%f%k
 %# "
 else
-    PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%) %F{135}%~%f
+    PRE_PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%)"
+    SUF_PROMPT=" %F{135}%~%f%k
 %# "
 fi
+
+# vim mode
+function zle-line-init zle-keymap-select {
+    VIM_NORMAL=""
+    VIM_INSERT="%F{204}in%f"
+    PROMPT=$PRE_PROMPT"${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"$SUF_PROMPT
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # git status
 autoload -Uz vcs_info
