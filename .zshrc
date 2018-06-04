@@ -36,6 +36,11 @@ alias soz='source ~/.zshrc'
 
 alias c='cdr'
 alias g='grep --color=auto'
+alias cl='clear'
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
 
 ## vim
 alias v='vim'
