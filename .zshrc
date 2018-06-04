@@ -19,6 +19,9 @@ setopt auto_pushd
 bindkey -v 
 bindkey "jk" vi-cmd-mode
 
+bindkey "^r" history-incremental-pattern-search-backward
+# bindkey "^s" history-incremental-pattern-search-forward
+
 # alias
 if ls --color=auto >/dev/null 2>&1 ; then 
     alias l='ls -ltr --color=auto'
@@ -83,7 +86,8 @@ fi
 # vim mode
 function zle-line-init zle-keymap-select {
     VIM_NORMAL=""
-    VIM_INSERT="%F{231}in%f"
+    # VIM_INSERT="%F{231}in%f"
+    VIM_INSERT="🤔"
     PROMPT=$PRE_PROMPT"${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"$SUF_PROMPT
     zle reset-prompt
 }

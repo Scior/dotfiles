@@ -32,9 +32,9 @@ call s:setDefaultValue("g:asv_backup", 1)
 " call s:setDefaultValue("g:asv_max_size", 2048) " KByte
 
 " disable when executed by root
-if $UID == 0 && g:asv_root_check == 1
-    let g:asv_enabled = 0
-endif
+" if $UID == 0 && g:asv_root_check == 1
+"     let g:asv_enabled = 0
+" endif
 
 " delay for saving
 execute ':set updatetime='.g:asv_delay
