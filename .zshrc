@@ -119,5 +119,4 @@ export EDITOR=vim
 
 cdpath=(~)
 
-# others
-# eval "$(rbenv init -)"
+source ~/.zsh_local
