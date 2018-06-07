@@ -85,9 +85,9 @@ fi
 
 # vim mode
 function zle-line-init zle-keymap-select {
-    VIM_NORMAL=""
+    VIM_NORMAL="🤔"
     # VIM_INSERT="%F{231}in%f"
-    VIM_INSERT="🤔"
+    VIM_INSERT=""
     PROMPT=$PRE_PROMPT"${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"$SUF_PROMPT
     zle reset-prompt
 }
