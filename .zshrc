@@ -38,6 +38,19 @@ else
     alias ll='ls -l'
 fi
 
+# cdr (!)
+mkdir -p $HOME/.cache/shell/
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*:*:cdr:*:*' menu selection
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-max 500
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-file "${XDG_CACHE_HOME:-$HOME/.cache}/shell/chpwd-recent-dirs"
+    zstyle ':chpwd:*' recent-dirs-pushd true
+fi
+
 alias so='source'
 alias soz='source ~/.zshrc'
 
@@ -45,9 +58,12 @@ alias c='cdr'
 alias g='grep --color=auto'
 alias cl='clear'
 
+alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
+
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
+alias -g ......='../../../../..'
 
 ## vim
 alias v='vim'
