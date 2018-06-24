@@ -38,7 +38,7 @@ else
     alias ll='ls -l'
 fi
 
-# cdr (!)
+# cdr g (!)
 mkdir -p $HOME/.cache/shell/
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -59,6 +59,7 @@ alias g='grep --color=auto'
 alias cl='clear'
 
 alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
+alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
 
 alias -g ...='../..'
 alias -g ....='../../..'
@@ -66,9 +67,11 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 ## vim
+mkdir -p ~/vtmp
 alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'
+# alias vt='(){sed -E "s/.+/`date '+%Y%m%d-%H%M%S'`/" $1 | xargs vim ~/vtmp/{}}'
 
 ## git
 alias ga='git add'
