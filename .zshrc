@@ -71,7 +71,7 @@ mkdir -p ~/vtmp
 alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'
-# alias vt='(){sed -E "s/.+/`date '+%Y%m%d-%H%M%S'`/" $1 | xargs vim ~/vtmp/{}}'
+alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
 
 ## git
 alias ga='git add'
