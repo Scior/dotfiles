@@ -60,6 +60,9 @@ alias cl='clear'
 
 alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
 alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
+alias -g th='(){tail -$1 | head -$2}'
+
+alias umm='(){repeat $1 echo -n 🤔; echo}'
 
 alias -g ...='../..'
 alias -g ....='../../..'
