@@ -74,6 +74,7 @@ mkdir -p ~/vtmp
 alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'
+alias vzl='vim ~/.zsh_local'
 alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
 
 ## git
