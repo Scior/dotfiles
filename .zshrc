@@ -95,7 +95,7 @@ alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Cr
 alias gls='git log --oneline --stat --graph'
 alias gpmp='(){cp ~/dotfiles/prohibit_gpom ./.git/hooks/pre-push}'
 
-alias gign='(){wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
+alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
 
 ## perl
 alias p='perl'
