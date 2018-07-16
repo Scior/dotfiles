@@ -95,7 +95,7 @@ alias gl='git log'
 alias glo='git log --oneline'
 alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset"'
 alias gls='git log --oneline --stat --graph'
-alias gpmp='(){cp ~/dotfiles/prohibit_gpom ./.git/hooks/pre-push}'
+alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 
 alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
 

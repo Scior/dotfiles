@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TARGET_BRANCHES="(master|develop)"
+
+while read local_ref local_sha1 remote_ref remote_sha1
+do
+  if [[ "${remote_ref##refs/heads/}" =~ $TARGET_BRANCHES ]]; then
+    echo "😇😇😇${remote_ref##refs/heads/}にpush奴〜〜〜😇😇😇"
+    exit 1
+  fi
+done
