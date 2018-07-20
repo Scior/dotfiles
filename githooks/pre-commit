@@ -7,5 +7,6 @@ branch="$(git symbolic-ref HEAD 2>/dev/null)" || \
 
 if [[ "${branch##refs/heads/}" =~ $TARGET_BRANCHES ]]; then
   echo "😇😇😇${branch##refs/heads/}にcommit奴〜〜〜😇😇😇"
+  afplay $GIT_DIR/hooks/*.mp3
   exit 1
 fi
