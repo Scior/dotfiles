@@ -116,12 +116,17 @@ else
 %# "
 fi
 
-# vim mode
+# refresh prompt
 function zle-line-init zle-keymap-select {
     VIM_NORMAL="🤔"
     # VIM_INSERT="%F{231}in%f"
     VIM_INSERT=""
     PROMPT=$PRE_PROMPT"${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"$SUF_PROMPT
+    
+    if [ "$VPN_AC_CONNECTION" ]; then
+        PROMPT="🌐"$PROMPT
+    fi
+    
     zle reset-prompt
 }
 zle -N zle-line-init
