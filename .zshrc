@@ -58,6 +58,8 @@ alias c='cdr'
 alias g='grep --color=auto'
 alias cl='clear'
 
+alias mkd='(){mkdir -p $1; cd $_}'
+
 alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
 alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
 alias -g th='(){tail -$1 | head -$2}'
