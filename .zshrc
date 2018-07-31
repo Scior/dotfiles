@@ -118,6 +118,10 @@ else
 %# "
 fi
 
+# PRE_PROMPT="%(?.%F{229}.%F{212})%n%F{248}@%F{222}%m%F{252}(%*%)"
+# SUF_PROMPT=" %F{221}%~%f%k
+# %# "
+
 # refresh prompt
 function zle-line-init zle-keymap-select {
     VIM_NORMAL="🤔"
