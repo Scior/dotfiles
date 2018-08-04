@@ -54,6 +54,8 @@ fi
 alias so='source'
 alias soz='source ~/.zshrc'
 
+alias se='sudoedit'
+
 alias c='cdr'
 alias g='grep --color=auto'
 alias cl='clear'
@@ -75,9 +77,13 @@ alias -g ......='../../../../..'
 mkdir -p ~/vtmp
 alias v='vim'
 alias vi='vim'
+alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
+
+## dotfiles
 alias vz='vim ~/.zshrc'
 alias vzl='vim ~/.zsh_local'
-alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
+alias vv='vim ~/.vimrc'
+alias dot='cd ~/dotfiles'
 
 ## git
 alias ga='git add'
@@ -106,6 +112,9 @@ alias p='perl'
 alias pe='perl -e'
 alias ppe='perl -pe'
 alias pne='perl -ne'
+
+# Vagrant
+alias vag='vagrant'
 
 # prompt text
 if [ "$SSH_CONNECTION" ]; then
