@@ -63,6 +63,7 @@ alias cl='clear'
 alias mkd='(){mkdir -p $1; cd $_}'
 
 alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
+alias fxg='find . -type f | xargs grep --color -n '
 alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
 alias -g th='(){tail -$1 | head -$2}'
 
@@ -116,15 +117,18 @@ alias pne='perl -ne'
 # Vagrant
 alias vag='vagrant'
 
+# virtualenv
+alias venv='virtualenv'
+alias von='source bin/activate'
+alias voff='deactivate'
+
 # prompt text
 if [ "$SSH_CONNECTION" ]; then
     PRE_PROMPT="%(?.%F{085}.%F{212})%n%F{244}@%F{043}%m%F{250}(%*%)"
-    SUF_PROMPT=" %F{117}%~%f%k
-%# "
+    SUF_PROMPT=" %F{117}%~%f%k"
 else
     PRE_PROMPT="%(?.%F{104}.%F{212})%n%F{244}@%F{111}%m%F{250}(%*%)"
-    SUF_PROMPT=" %F{135}%~%f%k
-%# "
+    SUF_PROMPT=" %F{135}%~%f%k"
 fi
 
 # PRE_PROMPT="%(?.%F{229}.%F{212})%n%F{248}@%F{222}%m%F{252}(%*%)"
@@ -136,12 +140,23 @@ function zle-line-init zle-keymap-select {
     VIM_NORMAL="🤔"
     # VIM_INSERT="%F{231}in%f"
     VIM_INSERT=""
+    
     PROMPT=$PRE_PROMPT"${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"$SUF_PROMPT
     
     if [ "$VPN_AC_CONNECTION" ]; then
         PROMPT="🌐"$PROMPT
     fi
     
+    if [ "$VIRTUAL_ENV" ]; then
+        SECOND_PROMPT="
+(%F{047}`basename \"$VIRTUAL_ENV\"`%f) %# "
+    else
+        SECOND_PROMPT="
+%# "
+    fi
+
+    PROMPT=$PROMPT$SECOND_PROMPT
+
     zle reset-prompt
 }
 zle -N zle-line-init
@@ -173,3 +188,6 @@ export EDITOR=vim
 cdpath=(~)
 
 source ~/.zsh_local
+
+# added by travis gem
+[ -f /Users/fujino/.travis/travis.sh ] && source /Users/fujino/.travis/travis.sh
