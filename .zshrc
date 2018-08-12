@@ -51,6 +51,8 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-pushd true
 fi
 
+alias zz='echo "\n\n\n\n\n"'
+
 alias so='source'
 alias soz='source ~/.zshrc'
 alias se='sudoedit'
