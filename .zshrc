@@ -55,8 +55,6 @@ alias so='source'
 alias soz='source ~/.zshrc'
 alias se='sudoedit'
 
-alias se='sudoedit'
-
 alias c='cdr'
 alias g='grep --color=auto'
 alias cl='clear'
