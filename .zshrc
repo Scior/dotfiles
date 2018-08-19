@@ -58,6 +58,7 @@ alias soz='source ~/.zshrc'
 alias se='sudoedit'
 
 alias c='cdr'
+alias cg='cdr -l | grep --color'
 alias e='exit'
 alias g='grep --color=auto'
 alias cl='clear'
@@ -92,6 +93,7 @@ alias dot='cd ~/dotfiles'
 
 ## git
 alias ga='git add'
+alias gaa='git add -A'
 alias gs='git status'
 alias gc='git checkout'
 alias gm='git merge'
