@@ -58,6 +58,7 @@ alias soz='source ~/.zshrc'
 alias se='sudoedit'
 
 alias c='cdr'
+alias e='exit'
 alias g='grep --color=auto'
 alias cl='clear'
 
@@ -129,6 +130,10 @@ alias vag='vagrant'
 alias venv='virtualenv'
 alias von='source bin/activate'
 alias voff='deactivate'
+
+function pk() {
+    ps ax | grep $1 | grep -v 'grep' | awk '{print $1}' | xargs kill -9
+}
 
 # prompt text
 if [ "$SSH_CONNECTION" ]; then
