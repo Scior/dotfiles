@@ -115,6 +115,11 @@ alias pe='perl -e'
 alias ppe='perl -pe'
 alias pne='perl -ne'
 
+## Homebrew
+alias bi='brew install'
+alias bl='brew list'
+alias bs='brew search'
+
 # Vagrant
 alias vag='vagrant'
 
@@ -190,5 +195,3 @@ cdpath=(~)
 
 source ~/.zsh_local
 
-# added by travis gem
-[ -f /Users/fujino/.travis/travis.sh ] && source /Users/fujino/.travis/travis.sh
