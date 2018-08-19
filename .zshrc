@@ -67,6 +67,8 @@ alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)
 alias fxg='find . -type f | xargs grep --color -n '
 alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
 alias -g th='(){tail -$1 | head -$2}'
+alias -g h='(){head -$1}'
+alias -g t='(){tail -$1}'
 
 alias umm='(){repeat $1 echo -n 🤔; echo}'
 
