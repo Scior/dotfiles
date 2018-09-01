@@ -1,3 +1,3 @@
-# alais
-source .aliasrc
+# alias
+source ~/.aliasrc
 

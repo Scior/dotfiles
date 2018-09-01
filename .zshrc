@@ -37,7 +37,7 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-pushd true
 fi
 
-source .aliasrc
+source ~/.aliasrc
 
 alias -g th='(){tail -$1 | head -$2}'
 alias -g h='(){head -$1}'
