@@ -103,15 +103,6 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 
-# clipboard
-if which pbcopy >/dev/null 2>&1 ; then
-    alias cbc='pbcopy' # Mac
-    alias cbp='pbpaste'
-elif which xsel >/dev/null 2>&1 ; then
-    alias cbc='xsel --clipboard --input ' # Linux
-    alias cbp='xsel --clipboard --output'
-fi
-
 # export
 export EDITOR=vim
 
