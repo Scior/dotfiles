@@ -23,20 +23,6 @@ bindkey "^r" history-incremental-pattern-search-backward
 # bindkey "^s" history-incremental-pattern-search-forward
 
 # alias
-if ls --color=auto >/dev/null 2>&1 ; then 
-    alias l='ls -ltr --color=auto'
-    alias la='ls -la --color=auto'
-    alias ll='ls -l --color=auto'
-elif ls -G >/dev/null 2>&1 ; then 
-    export LSCOLORS=xcfxcxdxbxegedabagacad
-    alias l='ls -ltrG'
-    alias la='ls -laG'
-    alias ll='ls -lG'
-else
-    alias l='ls -ltr'
-    alias la='ls -la'
-    alias ll='ls -l'
-fi
 
 # cdr g (!)
 mkdir -p $HOME/.cache/shell/
@@ -51,90 +37,16 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-pushd true
 fi
 
-alias zz='echo "\n\n\n\n\n"'
+source .aliasrc
 
-alias so='source'
-alias soz='source ~/.zshrc'
-alias se='sudoedit'
-
-alias c='cdr'
-alias cg='cdr -l | grep --color'
-alias e='exit'
-alias g='grep --color=auto'
-alias cl='clear'
-
-alias mkd='(){mkdir -p $1; cd $_}'
-
-alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
-alias fxg='find . -type f | xargs grep --color -n '
-alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
 alias -g th='(){tail -$1 | head -$2}'
 alias -g h='(){head -$1}'
 alias -g t='(){tail -$1}'
-
-alias umm='(){repeat $1 echo -n 🤔; echo}'
 
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
-
-## vim
-mkdir -p ~/vtmp
-alias v='vim'
-alias vi='vim'
-alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
-
-## dotfiles
-alias vz='vim ~/.zshrc'
-alias vzl='vim ~/.zsh_local'
-alias vv='vim ~/.vimrc'
-alias dot='cd ~/dotfiles'
-
-## git
-alias ga='git add'
-alias gaa='git add -A'
-alias gs='git status'
-alias gsp='git stash pop'
-alias gc='git checkout'
-alias gm='git merge'
-alias gcm='git commit -m'
-alias gcam='git commit -am'
-alias grao='git remote add origin'
-alias gd='git diff'
-alias gf='git fetch'
-alias gb='git branch'
-alias gpl='git pull'
-alias gg='git grep -n'
-alias gp='git push'
-alias gpro='git pull --rebase origin'
-alias gpo='git push origin'
-alias gl='git log'
-alias glo='git log --oneline'
-alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset"'
-alias gls='git log --oneline --stat --graph'
-alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
-
-alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
-
-## perl
-alias p='perl'
-alias pe='perl -e'
-alias ppe='perl -pe'
-alias pne='perl -ne'
-
-## Homebrew
-alias bi='brew install'
-alias bl='brew list'
-alias bs='brew search'
-
-# Vagrant
-alias vag='vagrant'
-
-# virtualenv
-alias venv='virtualenv'
-alias von='source bin/activate'
-alias voff='deactivate'
 
 function pk() {
     ps ax | grep $1 | grep -v 'grep' | awk '{print $1}' | xargs kill -9

@@ -1,0 +1,3 @@
+# alais
+source .aliasrc
+

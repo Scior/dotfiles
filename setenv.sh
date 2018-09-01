@@ -1,7 +1,9 @@
 #!/bin/sh
 cd ~
 ln -sf dotfiles/.vimrc .vimrc
+ln -sf dotfiles/.aliasrc .aliasrc
 ln -sf dotfiles/.zshrc .zshrc
+ln -sf dotfiles/.bashrc .bashrc
 ln -sf dotfiles/.vim .vim
 
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
