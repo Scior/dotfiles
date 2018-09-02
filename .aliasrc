@@ -16,6 +16,7 @@ fi
 alias zz='echo "\n\n\n\n\n"'
 
 alias so='source'
+alias sob='source ~/.bashrc'
 alias soz='source ~/.zshrc'
 alias se='sudoedit'
 
@@ -40,6 +41,7 @@ alias vi='vim'
 alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
 
 ## dotfiles
+alias vb='vim ~/.bashrc'
 alias vz='vim ~/.zshrc'
 alias vzl='vim ~/.zsh_local'
 alias vv='vim ~/.vimrc'
