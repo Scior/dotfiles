@@ -41,6 +41,7 @@ alias vi='vim'
 alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
 
 ## dotfiles
+alias va='vim ~/.aliasrc'
 alias vb='vim ~/.bashrc'
 alias vz='vim ~/.zshrc'
 alias vzl='vim ~/.zsh_local'
@@ -93,6 +94,9 @@ alias vag='vagrant'
 alias venv='virtualenv'
 alias von='source bin/activate'
 alias voff='deactivate'
+
+# nodebrew
+alias nb='nodebrew'
 
 # clipboard
 if which pbcopy >/dev/null 2>&1 ; then
