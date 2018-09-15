@@ -106,3 +106,9 @@ elif which xsel >/dev/null 2>&1 ; then
     alias cbc='xsel --clipboard --input ' # Linux
     alias cbp='xsel --clipboard --output'
 fi
+
+# open localhost
+if which open >/dev/null 2>&1 ; then
+    alias ol='(){open "http://localhost:$1"}'
+fi
+
