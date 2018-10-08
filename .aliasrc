@@ -79,6 +79,10 @@ alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/
 alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
 alias eg='echo $1 >> .gitignore'
 
+gcpr() {
+    git checkout $1 && git pull --rebase origin $1
+}
+
 ## perl
 alias p='perl'
 alias pe='perl -e'
