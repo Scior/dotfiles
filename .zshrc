@@ -1,3 +1,7 @@
+#-----------------
+#  Zsh Settings
+#-----------------
+
 autoload -Uz colors
 colors
 
@@ -14,17 +18,17 @@ SAVEHIST=10000
 setopt correct
 setopt auto_cd
 setopt auto_pushd
+export EDITOR=vim
 
-# vim bind
+#-----------------
+#  Key Binds
+#-----------------
 bindkey -v 
 bindkey "jk" vi-cmd-mode
 
 bindkey "^r" history-incremental-pattern-search-backward
 # bindkey "^s" history-incremental-pattern-search-forward
 
-# alias
-
-# cdr g (!)
 mkdir -p $HOME/.cache/shell/
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -37,6 +41,9 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-pushd true
 fi
 
+#-----------------
+#  Aliases
+#-----------------
 source ~/.aliasrc
 
 alias -g th='(){tail -$1 | head -$2}'
@@ -48,11 +55,9 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
-function pk() {
-    ps ax | grep $1 | grep -v 'grep' | awk '{print $1}' | xargs kill -9
-}
-
-# prompt text
+#-----------------
+#  Prompt Message
+#-----------------
 if [ "$SSH_CONNECTION" ]; then
     PRE_PROMPT="%(?.%F{085}.%F{212})%n%F{244}@%F{043}%m%F{250}(%*%)"
     SUF_PROMPT=" %F{117}%~%f%k"
@@ -92,7 +97,9 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# git status
+#-----------------
+#  Git Status
+#-----------------
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -103,8 +110,6 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 
-# export
-export EDITOR=vim
 
 # man deco
 man() {
@@ -122,3 +127,4 @@ man() {
 cdpath=(~)
 
 source ~/.zsh_local
+
