@@ -28,7 +28,10 @@ alias gv='grep -v'
 alias x='xargs'
 alias cl='clear'
 
-alias mkd='(){mkdir -p $1; cd $_}'
+mkd() {
+    mkdir -p $1
+    cd $_
+}
 
 alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
 alias fxg='find . -type f | xargs grep --color -n '
@@ -83,7 +86,10 @@ alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Cr
 alias gls='git log --oneline --stat --graph'
 alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 
-alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
+gign() {
+    cp .gitignore .gitignore_
+    wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore
+}
 alias eg='echo $1 >> .gitignore'
 
 gcpr() {
