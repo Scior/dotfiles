@@ -1,3 +1,11 @@
+#-----------------
+#  Alias Settings
+#  Author: Suita Fujino
+#-----------------
+
+#-----------------
+#  Major Commands
+#-----------------
 if ls --color=auto >/dev/null 2>&1 ; then 
     alias l='ls -ltr --color=auto'
     alias la='ls -la --color=auto'
@@ -12,8 +20,6 @@ else
     alias la='ls -la'
     alias ll='ls -l'
 fi
-
-alias zz='echo "\n\n\n\n\n"'
 
 alias so='source'
 alias sob='source ~/.bashrc'
@@ -35,14 +41,31 @@ alias fxg='find . -type f | xargs grep --color -n '
 alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
 
 alias umm='(){repeat $1 echo -n 🤔; echo}'
+# clipboard
+if which pbcopy >/dev/null 2>&1 ; then
+    alias cbc='pbcopy' # Mac
+    alias cbp='pbpaste'
+elif which xsel >/dev/null 2>&1 ; then
+    alias cbc='xsel --clipboard --input ' # Linux
+    alias cbp='xsel --clipboard --output'
+fi
 
-## vim
+# open localhost
+if which open >/dev/null 2>&1 ; then
+    alias ol='(){open "http://localhost:$1"}'
+fi
+
+#-----------------
+#  Vim
+#-----------------
 mkdir -p ~/vtmp
 alias v='vim'
 alias vi='vim'
 alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
 
-## dotfiles
+#-----------------
+# dotfiles
+#-----------------
 alias va='vim ~/.aliasrc'
 alias vb='vim ~/.bashrc'
 alias vz='vim ~/.zshrc'
@@ -50,7 +73,9 @@ alias vzl='vim ~/.zsh_local'
 alias vv='vim ~/.vimrc'
 alias dot='cd ~/dotfiles'
 
-## git
+#-----------------
+# git
+#-----------------
 alias ga='git add'
 alias gaa='git add -A'
 alias gs='git status'
@@ -90,39 +115,35 @@ gcpr() {
     git checkout $1 && git pull --rebase origin $1
 }
 
-## perl
+#-----------------
+#  Perl
+#-----------------
 alias p='perl'
 alias pe='perl -e'
 alias ppe='perl -pe'
 alias pne='perl -ne'
 
-## Homebrew
+#-----------------
+#  Homebrew
+#-----------------
 alias bi='brew install'
 alias bl='brew list'
 alias bs='brew search'
 
-# Vagrant
+#-----------------
+#  Vagrant
+#-----------------
 alias vag='vagrant'
 
+#-----------------
 # virtualenv
+#-----------------
 alias venv='virtualenv'
 alias von='source bin/activate'
 alias voff='deactivate'
 
-# nodebrew
+#-----------------
+#  Nodebrew
+#-----------------
 alias nb='nodebrew'
-
-# clipboard
-if which pbcopy >/dev/null 2>&1 ; then
-    alias cbc='pbcopy' # Mac
-    alias cbp='pbpaste'
-elif which xsel >/dev/null 2>&1 ; then
-    alias cbc='xsel --clipboard --input ' # Linux
-    alias cbp='xsel --clipboard --output'
-fi
-
-# open localhost
-if which open >/dev/null 2>&1 ; then
-    alias ol='(){open "http://localhost:$1"}'
-fi
 
