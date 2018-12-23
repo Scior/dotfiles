@@ -57,7 +57,7 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 #-----------------
-#  Prompt Message
+#  Refresh Prompt Message
 #-----------------
 if [ "$SSH_CONNECTION" ]; then
     PRE_PROMPT="%(?.%F{085}.%F{212})%n%F{244}@%F{043}%m%F{250}(%*%)"
@@ -71,7 +71,6 @@ fi
 # SUF_PROMPT=" %F{221}%~%f%k
 # %# "
 
-# Refresh Prompt
 function zle-line-init zle-keymap-select {
     VIM_NORMAL="🤔"
     # VIM_INSERT="%F{231}in%f"
@@ -90,9 +89,9 @@ function zle-line-init zle-keymap-select {
         SECOND_PROMPT="
 %# "
     fi
-
     PROMPT=$PROMPT$SECOND_PROMPT
 
+    # RPROMPT
     RPROMPT='${vcs_info_msg_0_}'
     if [ -e "`git rev-parse --git-dir 2>/dev/null`/hooks/pre-push" ]; then
         RPROMPT="🔒"$RPROMPT

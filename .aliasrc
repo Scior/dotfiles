@@ -109,8 +109,18 @@ alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Cr
 alias gls='git log --oneline --stat --graph'
 # alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 ghooks() {
-    cp ~/dotfiles/githooks/* ./.git/hooks/
-    chmod a+x ./.git/hooks/*
+    GIT_ROOT="`git rev-parse --git-dir 2>/dev/null`"
+    if [ "$GIT_ROOT" ]; then
+        cp ~/dotfiles/githooks/* $GIT_ROOT/hooks/
+        chmod a+x $GIT_ROOT/hooks/*
+    fi
+}
+rmhooks() {
+    GIT_ROOT="`git rev-parse --git-dir 2>/dev/null`"
+    if [ "$GIT_ROOT" ]; then
+        rm $GIT_ROOT/hooks/pre-commit
+        rm $GIT_ROOT/hooks/pre-push
+    fi
 }
 
 alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
