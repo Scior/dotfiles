@@ -1,7 +1,7 @@
-#-----------------
+#------------------------#
 #  Zsh Settings
 #  Author: Suita Fujino
-#-----------------
+#------------------------#
 
 autoload -Uz colors
 colors
