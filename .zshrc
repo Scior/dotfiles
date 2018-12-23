@@ -110,7 +110,9 @@ zstyle ':vcs_info:*' formats "%F{195}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
-
+if [ -e "`git rev-parse --git-dir`/hooks/pre-push" ]; then
+    RPROMPT="🔒"$RPROMPT
+fi
 
 # man deco
 man() {
