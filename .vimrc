@@ -16,7 +16,6 @@ set clipboard=unnamed,autoselect
 set hlsearch
 
 set history=10000
-
 inoremap jk <ESC>
 
 " NeoBundle
@@ -36,6 +35,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 call neobundle#end()
 
