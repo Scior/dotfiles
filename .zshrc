@@ -93,6 +93,11 @@ function zle-line-init zle-keymap-select {
 
     PROMPT=$PROMPT$SECOND_PROMPT
 
+    RPROMPT='${vcs_info_msg_0_}'
+    if [ -e "`git rev-parse --git-dir 2>/dev/null`/hooks/pre-push" ]; then
+        RPROMPT="🔒"$RPROMPT
+    fi
+
     zle reset-prompt
 }
 zle -N zle-line-init
@@ -109,10 +114,6 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{169}+"
 zstyle ':vcs_info:*' formats "%F{195}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
-RPROMPT='${vcs_info_msg_0_}'
-if [ -e "`git rev-parse --git-dir`/hooks/pre-push" ]; then
-    RPROMPT="🔒"$RPROMPT
-fi
 
 # man deco
 man() {
