@@ -54,6 +54,7 @@ fi
 # open localhost
 if which open >/dev/null 2>&1 ; then
     alias ol='(){open "http://localhost:$1"}'
+    alias ogr='git remote get-url origin | sed -E "s/:/\//" | sed -E "s/git@/https:\/\//" | xargs open'
 fi
 
 #-----------------
@@ -86,7 +87,7 @@ alias gc='git checkout'
 alias gm='git merge --no-ff'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
-alais grb='git rebase'
+alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grao='git remote add origin'
