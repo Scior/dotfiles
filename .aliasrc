@@ -83,7 +83,7 @@ alias gaa='git add -A'
 alias gs='git status'
 alias gst='git stash'
 alias gsp='git stash pop'
-alias gc='git checkout'
+
 alias gm='git merge --no-ff'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
@@ -114,6 +114,11 @@ alias gl='git log'
 alias glo='git log --oneline'
 alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset"'
 alias gls='git log --oneline --stat --graph'
+
+gc(){
+    git checkout $1
+    git fetch origin $1
+}
 # alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 ghooks() {
     GIT_ROOT="`git rev-parse --git-dir 2>/dev/null`"
