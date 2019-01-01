@@ -85,6 +85,7 @@ alias gst='git stash'
 alias gsp='git stash pop'
 
 alias gm='git merge --no-ff'
+alias gc='git checkout'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias grb='git rebase'
@@ -115,7 +116,7 @@ alias glo='git log --oneline'
 alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset"'
 alias gls='git log --oneline --stat --graph'
 
-gc(){
+gco(){
     git checkout $1
     git fetch origin $1
 }
