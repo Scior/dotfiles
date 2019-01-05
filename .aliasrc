@@ -120,6 +120,9 @@ gco(){
     git checkout $1
     git fetch origin $1
 }
+gcbf(){
+    git checkout -b "feature/$1"
+}
 # alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 ghooks() {
     GIT_ROOT="`git rev-parse --git-dir 2>/dev/null`"
