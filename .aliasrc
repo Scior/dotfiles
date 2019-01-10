@@ -115,6 +115,7 @@ alias gl='git log'
 alias glo='git log --oneline'
 alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset"'
 alias gls='git log --oneline --stat --graph'
+alias gow='git log --pretty="%ai %an" | sort -u -k1,1 | sort -k2 -r'
 
 gco(){
     git checkout $1
