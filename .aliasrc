@@ -118,7 +118,7 @@ alias gls='git log --oneline --stat --graph'
 
 gco(){
     git checkout $1
-    git fetch origin $1
+    git pull --rebase origin $1
 }
 gcbf(){
     git checkout -b "feature/$1"
