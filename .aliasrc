@@ -27,7 +27,7 @@ alias sob='source ~/.bashrc'
 alias soz='source ~/.zshrc'
 
 alias c='cdr'
-alias cg='cdr -l | grep --color'
+alias cg='cdr -l | grep -i --color'
 alias cl='clear'
 alias e='exit'
 alias g='grep --color=auto'
