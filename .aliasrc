@@ -145,10 +145,6 @@ rmhooks() {
 alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
 alias eg='echo $1 >> .gitignore'
 
-gcpr() {
-    git checkout $1 && git pull --rebase origin $1
-}
-
 #-----------------
 #  Perl
 #-----------------
