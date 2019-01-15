@@ -83,7 +83,6 @@ alias gaa='git add -A'
 alias gb='git branch'
 alias gbdm='git branch --merged | grep -v master | grep -v develop | xargs git branch -d'
 alias gbm='git branch --merged'
-alias gc='git checkout'
 alias gcam='git commit -am'
 alias gcm='git commit -m'
 alias gd='git diff'
@@ -115,6 +114,10 @@ alias grso='git remote show origin'
 alias gs='git status'
 alias gsp='git stash pop'
 alias gst='git stash'
+
+gc(){
+    git checkout $1 | perl -pe "s#(ahead|up to date)#\e\[38;05;31m\1\e[0m#;s#(behind)#\e\[38;05;196m\1\e[0m#"
+}
 
 gco(){
     git checkout $1
