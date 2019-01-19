@@ -130,14 +130,14 @@ gcbf(){
 }
 # alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 ghooks() {
-    GIT_ROOT="`git rev-parse --git-dir 2>/dev/null`"
+    GIT_ROOT=`git rev-parse --git-dir 2>/dev/null`
     if [ "$GIT_ROOT" ]; then
         cp ~/dotfiles/githooks/* $GIT_ROOT/hooks/
         chmod a+x $GIT_ROOT/hooks/*
     fi
 }
 rmhooks() {
-    GIT_ROOT="`git rev-parse --git-dir 2>/dev/null`"
+    GIT_ROOT=`git rev-parse --git-dir 2>/dev/null`
     if [ "$GIT_ROOT" ]; then
         rm $GIT_ROOT/hooks/pre-commit
         rm $GIT_ROOT/hooks/pre-push
