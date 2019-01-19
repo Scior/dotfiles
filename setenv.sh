@@ -1,4 +1,4 @@
-#!/usr/bin/env/ bash
+#!/usr/bin/env/ sh
 cd ~
 ln -sf dotfiles/.vimrc .vimrc
 ln -sf dotfiles/.aliasrc .aliasrc
@@ -13,3 +13,4 @@ mkdir ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 sudo chsh -s `which zsh` $USER
+
