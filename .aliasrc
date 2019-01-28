@@ -179,3 +179,11 @@ alias voff='deactivate'
 #-----------------
 alias nb='nodebrew'
 
+
+#-----------------
+#  Imagemagick
+#-----------------
+resize(){
+    convert -resize $2 $1 $1
+}
+
