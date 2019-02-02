@@ -168,7 +168,7 @@ alias bs='brew search'
 alias vag='vagrant'
 
 #-----------------
-# virtualenv
+#  Virtualenv
 #-----------------
 alias venv='virtualenv'
 alias von='source bin/activate'
@@ -179,9 +179,8 @@ alias voff='deactivate'
 #-----------------
 alias nb='nodebrew'
 
-
 #-----------------
-#  Imagemagick
+#  ImageMagick
 #-----------------
 resize(){
     convert -resize $2 $1 $1
