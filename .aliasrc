@@ -187,3 +187,10 @@ resize(){
     convert -resize $2 $1 $1
 }
 
+#-----------------
+#  ffmpeg
+#-----------------
+togif(){
+    ffmpeg -i $1 -vf scale=320:-1 -r 15 $1.gif
+}
+
