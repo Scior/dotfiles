@@ -183,6 +183,9 @@ alias nb='nodebrew'
 #-----------------
 #  ImageMagick
 #-----------------
+tojpg(){
+    convert -quality 70 $1 `echo $1 | sed -E 's/\..+/.jpg/'`
+}
 resize(){
     convert -resize $2 $1 $1
 }
