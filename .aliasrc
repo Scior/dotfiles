@@ -131,6 +131,15 @@ gco(){
 gcbf(){
     git checkout -b "feature/$1"
 }
+gign() {
+    cp .gitignore .gitignore_
+    res=$(curl https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore)
+    if [[ $res =~ "404: Not Found" ]]; then
+        echo $res
+    else
+        echo $res > .gitignore
+    fi
+}
 # alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
 ghooks() {
     GIT_ROOT=`git rev-parse --git-dir 2>/dev/null`
@@ -147,7 +156,6 @@ rmhooks() {
     fi
 }
 
-alias gign='(){cp .gitignore .gitignore_; wget https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore -O .gitignore}'
 alias eg='echo $1 >> .gitignore'
 
 #-----------------
