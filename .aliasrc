@@ -207,3 +207,10 @@ togif(){
     ffmpeg -i $1 -vf scale=320:-1 -r 15 $1.gif
 }
 
+#-----------------
+#  license
+#-----------------
+mkli() {
+    cat ~/dotfiles/license-template/$1 | sed -E "s/#YEAR/`date '+%Y'`/" | sed -E "s/#AUTHOR/$2/" > LICNESE
+}
+
