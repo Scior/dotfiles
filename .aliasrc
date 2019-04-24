@@ -137,7 +137,7 @@ gign() {
     if [[ $res =~ "404: Not Found" ]]; then
         echo $res
     else
-        echo $res > .gitignore
+        echo "$res" > .gitignore
     fi
 }
 # alias ghooks='(){cp ~/dotfiles/githooks/* ./.git/hooks/; chmod a+x ./.git/hooks/*}'
