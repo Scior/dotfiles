@@ -28,6 +28,16 @@ alias soz='source ~/.zshrc'
 
 alias c='cdr'
 alias cg='cdr -l | grep -i --color'
+
+cj(){
+    dir=$(cdr -l | grep -i -m1 $1 | awk '{print $2}' | perl -pe "s#^~#$HOME#")
+    if [[ "$dir" ]]; then
+        cd "$dir"
+    else
+        echo "Not found: $1"
+    fi
+}
+
 alias cl='clear'
 alias e='exit'
 alias g='grep --color=auto'
