@@ -47,6 +47,8 @@ alias x='xargs'
 
 alias mkd='(){mkdir -p $1; cd $_}'
 
+alias fd='fing . -type d'
+alias ff='find . -type f'
 alias fl='(){cd `pwd``find . -type f | grep -m1 $1 | perl -pe "s/(^\.|\/[^\/]*$)//g"`}'
 alias fxg='find . -type f | xargs grep --color -n '
 alias lc='tail -2 $HISTFILE | head -1 | perl -pe "s/^[^;]+;//g"'
