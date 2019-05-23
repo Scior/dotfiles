@@ -129,6 +129,7 @@ alias grp='git rev-parse'
 alias grpo='git remote prune origin'
 alias grso='git remote show origin'
 alias gs='git status'
+alias gsl='git stash list'
 alias gsp='git stash pop'
 alias gst='git stash'
 
