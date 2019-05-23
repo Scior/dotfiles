@@ -140,6 +140,9 @@ gco(){
     git checkout $1
     git pull --rebase origin $1
 }
+gcof(){
+    git checkout feature/$1
+}
 gcbf(){
     git checkout -b "feature/$1"
 }
