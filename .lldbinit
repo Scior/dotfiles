@@ -1,2 +1,3 @@
+command alias uikit expr import UIKit
 command alias swi expr -l swift --
 
