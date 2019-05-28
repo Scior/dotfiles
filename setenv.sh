@@ -2,6 +2,7 @@
 cd ~
 ln -sf dotfiles/.vimrc .vimrc
 ln -sf dotfiles/.aliasrc .aliasrc
+ln -sf dotfiles/.lldbinit .lldbinit
 ln -sf dotfiles/.zshrc .zshrc
 ln -sf dotfiles/.bashrc .bashrc
 ln -sf dotfiles/.vim .vim

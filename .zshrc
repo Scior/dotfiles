@@ -97,9 +97,11 @@ function zle-line-init zle-keymap-select {
         RPROMPT="🔒"$RPROMPT
     fi
     BRANCH="`git rev-parse --abbrev-ref HEAD 2>/dev/null`"
-    STASHED="`git stash list 2>/dev/null | grep $BRANCH | head -1 | awk -F: '{print $1}'`"
-    if [ "$STASHED" ]; then
-        RPROMPT=$STASHED@$RPROMPT
+    if [ "$BRANCH" ]; then
+        STASHED="`git stash list | grep $BRANCH | head -1 | awk -F: '{print $1}'`"
+        if [ "$STASHED" ]; then
+          RPROMPT=$STASHED@$RPROMPT
+        fi
     fi
 
     zle reset-prompt
