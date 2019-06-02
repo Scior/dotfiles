@@ -71,8 +71,6 @@ if which open >/dev/null 2>&1 ; then
     alias ogrp='(){git remote get-url origin | sed -e "s#:#/#" -e "s#git@#https://#" -e "s/\.git$//" | xargs -I@ open @/compare/$1...`git rev-parse --abbrev-ref HEAD 2>/dev/null`}'
 fi
 
-ogrpa(){ git remote get-url origin | sed -e "s#:#/#" -e "s#git@#https://#" -e "s/\.git$//" | xargs -I@ open @/compare/$1...`git rev-parse --abbrev-ref HEAD 2>/dev/null` }
-
 #-----------------
 #  Vim
 #-----------------
