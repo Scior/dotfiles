@@ -5,7 +5,7 @@ TARGET_BRANCHES="(master|develop)"
 while read local_ref local_sha1 remote_ref remote_sha1
 do
   MESSAGES=`git log --oneline origin/${remote_ref##refs/heads/}..HEAD | awk '{print $2}'`
-  if [[ $MESSAGES =~ (wip|temp|tmp) ]]; then
+  if [[ $MESSAGES =~ (WIP|wip|temp|tmp) ]]; then
     echo "💪rebaseしろよな！"
     exit 1
   fi
