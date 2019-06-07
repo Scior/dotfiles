@@ -4,6 +4,11 @@ TARGET_BRANCHES="(master|develop)"
 
 while read local_ref local_sha1 remote_ref remote_sha1
 do
+  MESSAGES=`git log --oneline origin/${remote_ref##refs/heads/}..HEAD | awk '{print $2}'`
+  if [[ $MESSAGES =~ (wip|temp|tmp) ]]; then
+    echo "💪rebaseしろよな！"
+    exit 1
+  fi
   if [[ "${remote_ref##refs/heads/}" =~ $TARGET_BRANCHES ]]; then
     echo "😇😇😇${remote_ref##refs/heads/}にpush奴〜〜〜😇😇😇"
     afplay $GIT_DIR/hooks/*.mp3
