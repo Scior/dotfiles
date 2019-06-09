@@ -232,3 +232,7 @@ mkli() {
     cat ~/dotfiles/license-template/$1 | sed -E "s/#YEAR/`date '+%Y'`/" | sed -E "s/#AUTHOR/$2/" > LICENSE
 }
 
+#-----------------
+#  other scripts
+#-----------------
+alias otenki='ruby ~/dotfiles/scripts/otenki.rb'
