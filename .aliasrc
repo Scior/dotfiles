@@ -204,6 +204,12 @@ alias von='source bin/activate'
 alias voff='deactivate'
 
 #-----------------
+#  Ruby
+#-----------------
+alias gi='gem install'
+alias sgi='sudo gem install'
+
+#-----------------
 #  Nodebrew
 #-----------------
 alias nb='nodebrew'
