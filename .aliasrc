@@ -210,6 +210,12 @@ alias gi='gem install'
 alias sgi='sudo gem install'
 
 #-----------------
+#  Bundle
+#-----------------
+alias bui='bundle install'
+alias burs='bundle exec rake spec'
+
+#-----------------
 #  Nodebrew
 #-----------------
 alias nb='nodebrew'
