@@ -221,6 +221,13 @@ alias burs='bundle exec rake spec'
 alias nb='nodebrew'
 
 #-----------------
+#  CocoaPods
+#-----------------
+alias poi='pod install'
+alias pos='pod search'
+alias pou='pod update'
+
+#-----------------
 #  ImageMagick
 #-----------------
 tojpg(){
