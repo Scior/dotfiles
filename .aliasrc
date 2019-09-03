@@ -206,9 +206,28 @@ alias von='source bin/activate'
 alias voff='deactivate'
 
 #-----------------
+#  Ruby
+#-----------------
+alias gi='gem install'
+alias sgi='sudo gem install'
+
+#-----------------
+#  Bundle
+#-----------------
+alias bui='bundle install'
+alias burs='bundle exec rake spec'
+
+#-----------------
 #  Nodebrew
 #-----------------
 alias nb='nodebrew'
+
+#-----------------
+#  CocoaPods
+#-----------------
+alias poi='pod install'
+alias pos='pod search'
+alias pou='pod update'
 
 #-----------------
 #  ImageMagick
