@@ -115,6 +115,7 @@ alias glf='git log --graph --branches --pretty=format:"%C(yellow)%h%C(cyan)%d%Cr
 alias glo='git log --oneline'
 alias gls='git log --oneline --stat --graph'
 alias gm='git merge --no-ff'
+alias gmtv='git mergetool -t vimdiff'
 alias gow='git log --pretty="%ai %an" | sort -u -k1,1 | sort -k2 -r'
 alias gp='git push'
 alias gpl='git pull'
