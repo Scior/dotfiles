@@ -1,4 +1,5 @@
 command script import ~/dotfiles/lldb/replace.py
+command script import ~/dotfiles/lldb/debugo.py
 
 command alias uikit expr import UIKit
 command alias swi expr -l swift --
