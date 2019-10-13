@@ -213,6 +213,15 @@ alias gi='gem install'
 alias sgi='sudo gem install'
 
 #-----------------
+# Xcode
+#-----------------
+if which open >/dev/null 2>&1 ; then
+    openxc() {
+        open `find . -type d -maxdepth 1 -name *.xcworkspace`
+    }
+fi
+
+#-----------------
 #  Bundle
 #-----------------
 alias bui='bundle install'
