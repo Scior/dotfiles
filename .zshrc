@@ -21,6 +21,8 @@ setopt auto_cd
 setopt auto_pushd
 export EDITOR=vim
 
+eval $(thefuck --alias)
+
 #-----------------
 #  Key Binds
 #-----------------
