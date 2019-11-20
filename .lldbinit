@@ -1,6 +1,7 @@
 command script import ~/dotfiles/lldb/replace.py
-command script import ~/dotfiles/lldb/debugo.py
 
 command alias uikit expr import UIKit
 command alias swi expr -l swift --
 command alias layout expr -l objc -O -- [[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] recursiveDescription]
+command regex deo 's/(.+)/e %1.debug().subscribe()/'
+
