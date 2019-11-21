@@ -20,6 +20,7 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 export EDITOR=vim
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 eval $(thefuck --alias)
 
