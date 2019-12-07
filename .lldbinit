@@ -1,3 +1,4 @@
+command script import ~/dotfiles/lldb/loadext.py
 command script import ~/dotfiles/lldb/replace.py
 
 command alias uikit expr import UIKit
