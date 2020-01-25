@@ -222,6 +222,7 @@ if which open >/dev/null 2>&1 ; then
         open `find . -type d -maxdepth 1 -name *.xcworkspace`
     }
 fi
+alias xcuser='cd ~/Library/Developer/Xcode/UserData'
 
 #-----------------
 #  Bundle
