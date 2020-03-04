@@ -43,11 +43,13 @@ call neobundle#end()
 " Required:
 filetype plugin indent on
 
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
 " solarized
-let g:solarized_termcolors=256
-set background=light
-colorscheme solarized
 syntax enable
+set background=dark
+colorscheme solarized
 
 augroup BinaryXXD
   autocmd!
