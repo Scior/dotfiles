@@ -7,6 +7,7 @@ import os
 from urllib.parse import urlparse
 
 
+@lldb.command("openurl")
 def open(debugger, exp, result, dict):
     value = common.evaluate(exp)
     typename = value.GetTypeName()
@@ -20,7 +21,3 @@ def open(debugger, exp, result, dict):
         os.system('open ' + url)
     else:
         print('Failed to open: ' + url)
-
-
-def __lldb_init_module(debugger, internal_dict):
-    debugger.HandleCommand('command script add -f openurl.open openurl')
