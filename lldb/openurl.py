@@ -1,25 +1,14 @@
 #!/usr/bin/env python3
 
 import lldb
+import lldbcommon as common
 import os
 
 from urllib.parse import urlparse
 
 
-def evaluate(exp):
-    value = (
-        lldb.debugger.GetSelectedTarget()
-        .GetProcess()
-        .GetSelectedThread()
-        .GetSelectedFrame()
-        .EvaluateExpression(exp)
-    )
-
-    return value
-
-
 def open(debugger, exp, result, dict):
-    value = evaluate(exp)
+    value = common.evaluate(exp)
     typename = value.GetTypeName()
     if typename not in ['Swift.String', 'Foundation.NSMutableString']:
         print('Incompatible type: ' + typename)
