@@ -12,19 +12,17 @@ def overlay_image(debugger, arguments, result, dict):
         data = f.read()
     # unsafeBitCast
     print(len(data))
-    address = common.evaluate('let $buf = ImageBuffer(size: %s)' % len(data))
-    address = int(common.evaluate('$buf').GetValue(), 16)
-    print(address)
+    common.evaluate('let $buf = ImageBuffer(size: %s)' % len(data))
+    address_str = common.evaluate('$buf.pointer').GetObjectDescription().split()[1]
+    address = int(address_str, 16)
+
     process = lldb.debugger.GetSelectedTarget().GetProcess()
     error = lldb.SBError()
-    data = data[0:10000]
     result = process.WriteMemory(address, data, error)
     print(result)
     if not error.Success() or result != len(data):
         print(error)
 
     common.evaluate('let $ov = DebugOverlayView(frame: %s.frame)' % view)
-    common.evaluate('$ov.setImage(data: $buf.getData()))')
-    print('c')
-    common.evaluate('$s.superview.addSubview($ov)')
-    print('d')
+    common.evaluate('$ov.set(data: $buf.getData()))')
+    common.evaluate('view.addSubview($ov)')
