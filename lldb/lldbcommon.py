@@ -18,3 +18,20 @@ def evaluate(exp):
     )
 
     return value
+
+
+def evaluateObjC(exp):
+    options = lldb.SBExpressionOptions()
+    options.SetLanguage(lldb.eLanguageTypeObjC_plus_plus)
+    options.SetTimeoutInMicroSeconds(3 * 1000 * 1000)
+    options.SetTrapExceptions(False)
+
+    value = (
+        lldb.debugger.GetSelectedTarget()
+        .GetProcess()
+        .GetSelectedThread()
+        .GetSelectedFrame()
+        .EvaluateExpression(exp, options)
+    )
+
+    return value
