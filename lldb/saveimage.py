@@ -3,6 +3,7 @@
 import lldb
 import lldbcommon as common
 import os
+import uuid
 
 
 @lldb.command("saveimage")
@@ -15,11 +16,12 @@ def save_image(debugger, arguments, result, dict):
         print('UIView must be passed to the first argument')
         return
 
-    common.evaluate('let $data = %s.convertToPNGData()' % view)
+    var_name = str(uuid.uuid4()).replace('-', '')
+    common.evaluate('let $%s = %s.convertToPNGData()' % (var_name, view))
     # アドレス周りはObjCの方がきれいに書ける
-    address_str = common.evaluate('($data as NSData).bytes').GetObjectDescription().split()[1]
+    address_str = common.evaluate('($%s as NSData).bytes' % var_name).GetObjectDescription().split()[1]
     address = int(address_str, 16)
-    size = int(common.evaluate('$data.count').GetValue())
+    size = int(common.evaluate('$%s.count' % var_name).GetValue())
 
     # メモリから画像をPython側にロードしてファイルに書き込み
     process = lldb.debugger.GetSelectedTarget().GetProcess()
