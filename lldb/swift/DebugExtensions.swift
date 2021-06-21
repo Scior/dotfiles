@@ -9,6 +9,7 @@ extension UIViewController {
             let label = UILabel(frame: .zero)
             label.text = String(describing: type(of: view))
             label.textColor = color
+            label.backgroundColor = .init(white: 0.8, alpha: 0.5)
             label.sizeToFit()
             
             view.subviews.forEach { overlayHandler?($0) }
@@ -17,5 +18,18 @@ extension UIViewController {
         }
         
         overlayHandler?(view)
+    }
+}
+
+extension UIView {
+    func takeSnapshot() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { context in
+            layer.render(in: context.cgContext)
+        }
+    }
+
+    func convertToPNGData() -> Data {
+        return takeSnapshot()!.pngData()!
     }
 }

@@ -3,6 +3,7 @@ command script import ~/dotfiles/lldb/lldbcommon.py
 command script import ~/dotfiles/lldb/replace.py
 command script import ~/dotfiles/lldb/openurl.py
 command script import ~/dotfiles/lldb/overlayimage.py
+command script import ~/dotfiles/lldb/saveimage.py
 
 command alias uikit expr import UIKit
 command alias swi expr -l swift --

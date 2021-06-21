@@ -7,6 +7,6 @@ import os
 
 @lldb.command("loadext")
 def load(debugger, command, result, dict):
-    FILE_PATH = os.path.join(os.path.dirname(__file__), 'swift/DebugExtensions.swift')
-    with open(FILE_PATH, 'r') as f:
+    path = os.path.join(os.path.dirname(__file__), 'swift/DebugExtensions.swift')
+    with open(path, 'r') as f:
         common.evaluate(f.read())
