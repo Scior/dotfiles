@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import lldb
+import uuid
 
 
 def evaluate(exp):
@@ -35,3 +36,7 @@ def evaluateObjC(exp):
     )
 
     return value
+
+
+def generateVarName():
+    return str(uuid.uuid4()).replace('-', '')

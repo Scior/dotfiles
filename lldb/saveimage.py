@@ -34,4 +34,4 @@ def save_image(debugger, arguments, result, dict):
     else:
         with open(path, "wb") as f:
             f.write(data)
-        print("An image has been written to: %s" % path)
+        print("The image has been written to: %s" % path)
