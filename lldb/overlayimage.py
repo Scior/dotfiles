@@ -26,6 +26,6 @@ def overlay_image(debugger, arguments, result, dict):
     else:
         view_name = common.generateVarName()
         common.evaluate('let $%s = DebugOverlayView(frame: %s.frame)' % (view_name, view))
-        common.evaluate('$%s.set(data: $%s.getData()))' % (view_name, buf_name))
-        common.evaluate('%s.superview.addSubview($%s)' % (view, view_name))
+        common.evaluate('$%s.set(data: $%s.getData())' % (view_name, buf_name))
+        common.evaluate('%s.superview?.addSubview($%s)' % (view, view_name))
         print("The image has been loaded from: %s" % path)
