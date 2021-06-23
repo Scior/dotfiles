@@ -10,14 +10,18 @@ def evaluate(exp):
     options.SetTimeoutInMicroSeconds(3 * 1000 * 1000)
     options.SetTrapExceptions(False)
 
-    value = (
+    frame = (
         lldb.debugger.GetSelectedTarget()
         .GetProcess()
         .GetSelectedThread()
         .GetSelectedFrame()
-        .EvaluateExpression(exp, options)
     )
 
+    value = frame.EvaluateExpression(exp, options)
+    error = value.GetError()
+    if not error.Success() and error.value != 0x1001:
+        print(error)
+        
     return value
 
 
@@ -27,15 +31,14 @@ def evaluateObjC(exp):
     options.SetTimeoutInMicroSeconds(3 * 1000 * 1000)
     options.SetTrapExceptions(False)
 
-    value = (
+    frame = (
         lldb.debugger.GetSelectedTarget()
         .GetProcess()
         .GetSelectedThread()
         .GetSelectedFrame()
-        .EvaluateExpression(exp, options)
     )
 
-    return value
+    return frame.EvaluateExpression(exp, options)
 
 
 def generateVarName():
