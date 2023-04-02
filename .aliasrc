@@ -210,12 +210,6 @@ alias von='source bin/activate'
 alias voff='deactivate'
 
 #-----------------
-#  Ruby
-#-----------------
-alias gi='gem install'
-alias sgi='sudo gem install'
-
-#-----------------
 # Xcode
 #-----------------
 if which open >/dev/null 2>&1 ; then
@@ -228,6 +222,7 @@ alias xcuser='cd ~/Library/Developer/Xcode/UserData'
 #-----------------
 #  Bundle
 #-----------------
+alias bepi='bundle exec pod install'
 alias bui='bundle install'
 alias burs='bundle exec rake spec'
 
@@ -240,7 +235,6 @@ alias nb='nodebrew'
 #  CocoaPods
 #-----------------
 alias poi='pod install'
-alias pos='pod search'
 alias pou='pod update'
 
 #-----------------
