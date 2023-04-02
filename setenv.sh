@@ -29,4 +29,3 @@ git config --global mergetool.prompt false
 git config --global mergetool.keepBackup false
 
 sudo chsh -s `which zsh` $USER
-

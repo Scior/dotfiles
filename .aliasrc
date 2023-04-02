@@ -83,11 +83,11 @@ alias vt='(){mkdir -p `dirname $1`;vim ~/vtmp/$1}'
 # dotfiles
 #-----------------
 alias dot='cd ~/dotfiles'
-alias va='vim ~/.aliasrc'
-alias vb='vim ~/.bashrc'
-alias vv='vim ~/.vimrc'
-alias vz='vim ~/.zshrc'
-alias vzl='vim ~/.zsh_local'
+alias va='code ~/.aliasrc'
+alias vb='code ~/.bashrc'
+alias vv='code ~/.vimrc'
+alias vz='code ~/.zshrc'
+alias vzl='code ~/.zsh_local'
 
 #-----------------
 # git
@@ -118,6 +118,7 @@ alias glo='git log --oneline'
 alias gls='git log --oneline --stat --graph'
 alias gm='git merge'
 alias gmnf='git merge --no-ff'
+alias gmt='git mergetool'
 alias gmtv='git mergetool -t vimdiff'
 alias gow='git log --pretty="%ai %an" | sort -u -k1,1 | sort -k2 -r'
 alias gp='git push'
