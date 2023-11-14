@@ -5,23 +5,16 @@ extension URLRequest {
             return nil
         }
 
-        var components = ["curl", "-X", method]
-        let headers = allHTTPHeaderFields?
-            .map { key, value in
-                "-H '\(key): \(value)'"
-            }
-            .joined(separator: " ")
-        let body = httpBody
-            .flatMap { String(data: $0, encoding: .utf8) }
-            .map { "-d '\($0)'" }
-        let components = [
-            "curl",
-            "-X \(method)",
-            "'\(url)'",
-            headers,
-            body
-        ]
+        var components = ["curl", "-X", method, "'\(url)'"]
+        for header in allHTTPHeaderFields ?? [:] {
+            components.append("-H")
+            components.append("'\(header.key): \(header.value)'")
+        }
+        if let httpBody, let body = String(data: httpBody, encoding: .utf8) {
+            components.append("-d")
+            components.append("'\(body)'")
+        }
 
-        return components.compactMap { $0 }.joined(separator: " ")
+        return components.joined(separator: " ")
     }
 }
