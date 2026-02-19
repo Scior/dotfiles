@@ -9,6 +9,8 @@ ln -sf dotfiles/.zshrc .zshrc
 ln -sf dotfiles/.bashrc .bashrc
 ln -sf dotfiles/.vim .vim
 
+source ~/.zshrc
+
 # HomeBrew
 cd $(dirname $0)
 if command -v brew >/dev/null; then

@@ -22,8 +22,6 @@ setopt auto_pushd
 export EDITOR=vim
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-eval $(thefuck --alias)
-
 #-----------------
 #  Key Binds
 #-----------------
