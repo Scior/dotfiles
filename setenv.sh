@@ -25,7 +25,7 @@ fi
 
 # VS Code
 git config --global merge.tool vscode
-git config --global mergetool.vscode.cmd 'code --wait --merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'
+git config --global mergetool.vscode.cmd 'code --wait --new-window --merge $LOCAL $REMOTE $BASE $MERGED'
 git config --global mergetool.prompt false
 git config --global mergetool.keepBackup false
 
