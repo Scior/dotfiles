@@ -8,6 +8,8 @@ ln -sf dotfiles/.lldbinit .lldbinit
 ln -sf dotfiles/.zshrc .zshrc
 ln -sf dotfiles/.bashrc .bashrc
 ln -sf dotfiles/.vim .vim
+mkdir -p ~/.config/ghostty
+ln -sf dotfiles/ghostty/config ~/.config/ghostty/config
 
 source ~/.zshrc
 
