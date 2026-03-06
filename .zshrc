@@ -137,6 +137,7 @@ man() {
 
 cdpath=(~)
 
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Read Local Settings
 source ~/.zsh_local
 
