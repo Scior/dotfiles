@@ -25,8 +25,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 #-----------------
 #  Key Binds
 #-----------------
-bindkey -v 
-bindkey "jk" vi-cmd-mode
+bindkey -e
 
 bindkey "^r" history-incremental-pattern-search-backward
 # bindkey "^s" history-incremental-pattern-search-forward
@@ -68,16 +67,12 @@ else
     SUF_PROMPT=" %F{135}%~%f%k"
 fi
 
-# PRE_PROMPT="%(?.%F{229}.%F{212})%n%F{248}@%F{222}%m%F{252}(%*%)"
-# SUF_PROMPT=" %F{221}%~%f%k
-# %# "
-
 function zle-line-init zle-keymap-select {
     VIM_NORMAL="🤔"
     # VIM_INSERT="%F{231}in%f"
     VIM_INSERT=""
     
-    PROMPT=$PRE_PROMPT"${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"$SUF_PROMPT
+    PROMPT=$PRE_PROMPT$SUF_PROMPT
     
     if [ "$VPN_AC_CONNECTION" ]; then
         PROMPT="🌐"$PROMPT
