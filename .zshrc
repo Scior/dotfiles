@@ -137,6 +137,7 @@ man() {
 
 cdpath=(~)
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Read Local Settings
 source ~/.zsh_local
