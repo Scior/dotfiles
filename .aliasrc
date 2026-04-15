@@ -95,7 +95,7 @@ alias vzl='code ~/.zsh_local'
 alias ga='git add'
 alias gaa='git add -A'
 alias gb='git branch'
-alias gbdm='git branch --merged | grep -v master | grep -v develop | xargs git branch -d'
+alias gbdm='git branch --merged | grep -v master | | grep -v main | grep -v develop | xargs git branch -d'
 alias gbm='git branch --merged'
 alias gc='git checkout'
 alias gcam='git commit -am'
@@ -245,6 +245,10 @@ tojpg(){
 }
 resize(){
     convert -resize $2 $1 $1
+}
+vdiff(){
+    compare "$(ls -t *.png | sed -n '2p')" "$(ls -t *.png | sed -n '1p')" diff.png
+    open diff.png
 }
 
 #-----------------
